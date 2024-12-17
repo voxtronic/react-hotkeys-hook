@@ -34,8 +34,8 @@ export default function useHotkeys<T extends HTMLElement>(
   const _options: Options | undefined = !(options instanceof Array)
     ? (options as Options)
     : !(dependencies instanceof Array)
-    ? (dependencies as Options)
-    : undefined
+      ? (dependencies as Options)
+      : undefined
   const _keys: string = isReadonlyArray(keys) ? keys.join(_options?.splitKey) : keys
   const _deps: DependencyList | undefined =
     options instanceof Array ? options : dependencies instanceof Array ? dependencies : undefined
@@ -85,7 +85,7 @@ export default function useHotkeys<T extends HTMLElement>(
       parseKeysHookInput(_keys, memoisedOptions?.splitKey).forEach((key) => {
         const hotkey = parseHotkey(key, memoisedOptions?.combinationKey)
 
-        if (isHotkeyMatchingKeyboardEvent(e, hotkey, memoisedOptions?.ignoreModifiers) || hotkey.keys?.includes('*')) {
+        if (isHotkeyMatchingKeyboardEvent(e, hotkey, memoisedOptions?.ignoreModifiers)) {
           if (memoisedOptions?.ignoreEventWhen?.(e)) {
             return
           }
