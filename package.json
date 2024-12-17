@@ -1,10 +1,10 @@
 {
-  "name": "react-hotkeys-hook",
+  "name": "@voxtronic/react-hotkeys-hook",
   "description": "React hook for handling keyboard shortcuts",
   "version": "4.6.1",
   "repository": {
     "type": "git",
-    "url": "https://github.com/JohannesKlauss/react-keymap-hook.git"
+    "url": "https://github.com/voxtronic/react-hotkeys-hook.git"
   },
   "homepage": "https://johannesklauss.github.io/react-hotkeys-hook/",
   "author": "Johannes Klauss",
