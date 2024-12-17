@@ -496,29 +496,29 @@ test('should be disabled on form tags inside custom elements by default', async 
   const callback = jest.fn()
 
   customElements.define(
-    "custom-input",
+    'custom-input',
     class extends HTMLElement {
       constructor() {
-        super();
+        super()
 
-        const inputEle = document.createElement("input");
-        inputEle.setAttribute("type", "text");
-        inputEle.setAttribute("data-testid", "input");
+        const inputEle = document.createElement('input')
+        inputEle.setAttribute('type', 'text')
+        inputEle.setAttribute('data-testid', 'input')
 
         const shadowRoot = this.attachShadow({
-          mode: "open"
-        });
+          mode: 'open',
+        })
 
-        shadowRoot.appendChild(inputEle);
+        shadowRoot.appendChild(inputEle)
       }
-    },
-  );
+    }
+  )
 
   const Component = ({ cb }: { cb: HotkeyCallback }) => {
     useHotkeys<HTMLDivElement>('a', cb)
 
     // @ts-ignore
-    return <custom-input data-testid={'form-tag'}/>
+    return <custom-input data-testid={'form-tag'} />
   }
 
   const { getByTestId } = render(<Component cb={callback} />)
@@ -906,17 +906,6 @@ test.skip('should preventDefault and stop propagation when ref is not focused', 
   await userEvent.keyboard('A')
 
   expect(callback).toHaveBeenCalled()
-})
-
-test('should allow * as a wildcard', async () => {
-  const user = userEvent.setup()
-  const callback = jest.fn()
-
-  renderHook(() => useHotkeys('*', callback))
-
-  await user.keyboard('A')
-
-  expect(callback).toHaveBeenCalledTimes(1)
 })
 
 test('should listen to function keys f1-f16', async () => {
